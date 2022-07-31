@@ -1,0 +1,98 @@
+<h2>Product Details</h2>
+<table border="1">
+    <tr>
+        <th>ProductId</th>
+        <th>SKU</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Unitprice</th>
+        <th>Image</th>
+        <th>Active</th>
+        <th>Unitsinstock</th>
+        <th>DateCreated</th>
+        <th>LastUpdated</th>
+        <th>CategoryId</th>
+    </tr>
+    <tr *ngFor="let temp of  products">
+        <td>{{temp.productid}}</td>
+        <td>{{temp.sku}}</td>
+        <td>{{temp.name}}</td>
+        <td>{{temp.description}}</td>
+        <td>{{temp.unitprice}}</td>
+        <td>
+            <img src="{{temp.imageurl}}" class="img-thumbnail" alt="...">
+        </td>
+        <td>{{temp.activebit}}</td>
+        <td>{{temp.unitsinstock}}</td>
+        <td>{{temp.datecreated}}</td>
+        <td>{{temp.lastupdated}}</td>
+        <td>{{temp.categoryid}}</td>
+    </tr>
+    </table>
+    &nbsp;
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+        <div class="form-control">
+            <label>ProductID</label>
+            <input type="number" name="productid" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>SKU</label>
+            <input type="text" name="sku" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>Name</label>
+            <input type="text" name="name"  ngModel/>
+        </div>
+        <div class="form-control">
+            <label>Description</label>
+            <input type="text" name="description" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>Unitprice</label>
+            <input type="number" name="unitprice" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>Image</label>
+            <input type="text" name="imageurl" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>Active</label>
+            <input type="number" name="activebit" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>Unitsinstock</label>
+            <input type="number" name="unitsinstock" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>DateCreated</label>
+            <input type="number" name="datecreated" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>LastUpdated</label>
+            <input type="text" name="lastupdated" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>CategoryId</label>
+            <input type="text" name="categoryid" ngModel/>
+        </div>
+        <div class="form-control">
+            <label>CategoryName</label>
+            <input type="text" name="categoryn" ngModel/>
+        </div>
+        <button type="submit" >Submit</button>
+    </form>
+    &nbsp;
+    <form #CategorySelect = "ngForm" (ngSubmit) = "onSubmit(CategorySelect)"></form>
+        <div class="row">
+            <div class = "col-sm-3">
+                <h2>Categories</h2>
+            </div>
+            <div class = "col-sm-3">
+                <select class = "form-select">
+                    <option selected>Select Here</option>    
+                    <option *ngFor = "let cat of categories" value = "{{cat.categoryid}}"> {{cat.categoryname}}</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
